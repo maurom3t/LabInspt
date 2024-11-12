@@ -1,0 +1,104 @@
+Algoritmo piedra
+    Escribir "Bienvenido al juego de Piedra, Papel o Tijeras"
+    Escribir "1. Piedra"
+    Escribir "2. Tijera"
+    Escribir "3. Papel"
+    Escribir "Ingrese un número: "
+    Leer jug
+    oc = Azar(3)
+    Si oc == 1 Entonces
+        movMaquina <- "Piedra"
+		piedro()
+    SiNo
+        Si oc == 2 Entonces
+            movMaquina <- "Tijera"
+			tijera()
+        SiNo
+            movMaquina <- "Papel"
+			papel()
+        Fin Si
+    Fin Si
+	vs()
+    Si jug == 1 Entonces
+        movJugador <- "Piedra"
+		piedro()
+    SiNo
+        Si jug == 2 Entonces
+            movJugador <- "Tijera"
+			tijera()
+        SiNo
+            movJugador <- "Papel"
+			papel()
+        Fin Si
+    Fin Si
+    Escribir "La máquina juega con ", movMaquina
+    Escribir "Usted juega con ", movJugador
+    Si movJugador = movMaquina Entonces
+        Escribir "Usted ha empatado"
+    SiNo
+        Si (movJugador = "Piedra" y movMaquina = "Tijera") o (movJugador = "Tijera" y movMaquina = "Papel") o (movJugador = "Papel" y movMaquina = "Piedra") Entonces
+            Escribir "Usted ha ganado"
+        SiNo
+            Escribir "Usted ha perdido"
+        Fin Si
+    Fin Si
+FinAlgoritmo
+ 
+Funcion papel
+    Escribir "                                              ";//10
+    Escribir "                                              ";//11
+    Escribir "                                              ";//12
+    Escribir "                  _______                      ";//13
+    Escribir "                  | | | |   __                 ";//14
+    Escribir "               __ | | | | / /                 ";//15
+    Escribir "               \ \| | | |/ /                   ";//16
+    Escribir "                \         /                    ";//17
+    Escribir "                 \_______/                     ";//18
+    Escribir "                   PAPEL                       ";//19
+    Escribir "                                              ";//20
+FinFuncion
+ 
+Funcion tijera
+    Escribir "                                              ";//10
+    Escribir "                                              ";//11
+    Escribir "                                              ";//12
+    Escribir "                                              ";//13
+    Escribir "                  __     __                 ";//14
+    Escribir "                  \ \   / /                 ";//15
+    Escribir "                   \ \ / /                   ";//16
+    Escribir "                  /\ \ _\ \                   ";//13
+    Escribir "                 /  |_|   /                    ";//17
+    Escribir "                 \_______/                     ";//18
+    Escribir "                   TIJERA                       ";//19
+    Escribir "                                              ";//20
+FinFuncion
+ 
+Funcion piedro
+    Escribir "                                              ";//10
+    Escribir "                                              ";//11
+    Escribir "                                              ";//12
+    Escribir "                                              ";//13
+    Escribir "                                             ";//14
+    Escribir "                  ______ __                 ";//15
+    Escribir "                 /| | | |\ \                       ";//16
+    Escribir "                |\|_|_|_|  |                    ";//13
+    Escribir "                \         /                    ";//17
+    Escribir "                 \_______/                     ";//18
+    Escribir "                   PIEDRA                       ";//19
+    Escribir "                                              ";//20
+FinFuncion
+ 
+Funcion vs
+	Escribir "                                              ";//10
+    Escribir "                                              ";//11
+    Escribir "                                              ";//12
+    Escribir "                                              ";//13
+    Escribir "             ______      ______         _______________         ";//14
+    Escribir "             \     \    /     /         |             |        ";//15
+    Escribir "              \     \  /     /          |      _______|       ";//16
+	Escribir "               \     \/     /           |_______      |        ";//13
+    Escribir "                \          /            |             |          ";//17
+    Escribir "                 \________/             |_____________|            ";//18
+    Escribir "                                                           ";//19
+    Escribir "                                                ";//20
+FinFuncion

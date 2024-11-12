@@ -1,0 +1,133 @@
+Algoritmo negocio
+	Definir  user, password Como Caracter
+	Definir esAdmin,x ,intentos,dineroEmpresa Como Entero
+	Dimension cargarCliente[1, 2]
+	Dimension stockProveedor[6,4]
+	///-------------STOCK  MATERIAL ---------------------///
+	stockProveedor[1,1]<-"ABS"//MATERIAL
+	stockProveedor[1,2]<-"NEGRO"//COLOR
+	stockProveedor[1,3]<-"800" //PRECIO
+	stockProveedor[1,4]<-"900000"//CANTIDAD
+	stockProveedor[2,1]<-"ABS"//MATERIAL
+	stockProveedor[2,2]<-"ROJO"//COLOR
+	stockProveedor[2,3]<-"800" //PRECIO
+	stockProveedor[2,4]<-"900000"//CANTIDAD
+	///-------------STOCK OTRO MATERIAL ---------------------///
+	stockProveedor[3,1]<-"PLA"//MATERIAL
+	stockProveedor[3,2]<-"NEGRO"//COLOR
+	stockProveedor[3,3]<-"800" //PRECIO
+	stockProveedor[3,4]<-"900000"//CANTIDAD
+	stockProveedor[4,1]<-"PLA"//MATERIAL
+	stockProveedor[4,2]<-"ROJO"//COLOR
+	stockProveedor[4,3]<-"800" //PRECIO
+	stockProveedor[4,4]<-"900000"//CANTIDAD
+	///--------------EL QUE TENGA GANAS QUE AGREGUE MAS MATERIALES---//
+	dineroEmpresa<-100000000	
+	//los usuario se van a guardar en la columna 1 
+	// las contraseñas se van a guardar en la columna 2
+	x<-0
+	cargarCliente[1,1]<-"Admin23"
+	cargarCliente[1,2]<-"insptn50"
+	intentos<-0
+	Mientras 5>intentos y x=0 Hacer
+		x<-validarUsuarioContrasena()		
+		intentos<-intetos + 1 
+	FinMientras
+	si x = 0 Entonces
+		Escribir ("Lo retornamos a la funcion principal")
+	SiNo
+		Escribir "Bienvenido al tronco de Marin"
+		Definir op Como Entero
+		Repetir
+			Escribir ("Ingrese una opcion: 1- Mostrar Stock Disponible ")
+			Escribir ("					    2- Solicitar Stock al Proveedor ")
+			Escribir ("						3- Mostrar Stock Disponible ")
+			Leer op
+			Segun op Hacer
+				1:
+					//mostrarStockDisponible()
+				2:
+					solicitarStockProveedor()
+				3:
+					//alertasDeStocks()
+				De Otro Modo:
+					escribir "regresando al menu del programada principal"
+			Fin Segun
+		Hasta Que op =0
+	FinSi
+
+
+
+
+FinAlgoritmo
+ 
+ 
+//La funcion valida que el usuario haya ingresado el usuario y contraseña del administrador
+Funcion x <- validarUsuarioContrasena
+    // Definir las variables
+    Definir usuario, contrasena Como Caracter
+    Definir accesoPermitido Como Logico
+    accesoPermitido <- Falso
+	x<-0
+    Mientras No accesoPermitido Hacer
+        // Solicitar al usuario que ingrese el nombre de usuario
+        Escribir "Ingrese el nombre de usuario: "
+        Leer usuario
+        // Solicitar al usuario que ingrese la contraseña
+        Escribir "Ingrese la contraseña: "
+        Leer contrasena
+        // Validar el nombre de usuario y la contraseña
+        Si usuario = "Admin23" y contrasena = "insptn50" Entonces
+            accesoPermitido <- Verdadero
+			x<-1
+            Escribir "Acceso permitido. ¡Bienvenido!"
+        SiNo
+            Escribir "Usuario o contraseña incorrectos. Inténtelo de nuevo."
+        FinSi
+    FinMientras
+FinFuncion
+ 
+Funcion x <- validarProducto(mat, col, cantSolicitada, stock)
+    Definir i, cantidadEnStock Como Entero
+    x <- "No"  // Asumimos que el producto no está disponible o no hay suficiente cantidad
+    // Búsqueda en el stock
+    Para i <- 1 Hasta 6 Con Paso 1 Hacer
+        Si stock[i,1] = mat Y stock[i,2] = col Entonces
+            cantidadEnStock <- ConvertirANumero(stock[i,4])  // Convertir la cantidad en stock a número
+            Si cantSolicitada <= cantidadEnStock Entonces
+                x <- "Sí"  // Producto y cantidad disponibles
+            FinSi
+			// Salimos del ciclo ya que el producto fue encontrado
+        FinSi
+    FinPara
+FinFuncion
+ 
+Funcion solicitarStockProveedor	
+ 
+	intentos <- 0
+    esValido <- "No"
+    // Ciclo para permitir hasta 3 intentos
+    Mientras intentos < 3 Y esValido = "No" Hacer
+        Escribir "Ingrese el material que desea solicitar (Ej: ABS, PLA): "
+        Leer material
+        Escribir "Ingrese el color del material (Ej: NEGRO, ROJO): "
+        Leer color
+        Escribir "Ingrese la cantidad solicitada: "
+        Leer cantidadSolicitada
+        // Llamada a la función para validar existencia en stock y cantidad
+        esValido <- validarProducto(material, color, cantidadSolicitada, stockProveedor)
+        Si esValido = "Sí" Entonces
+            Escribir "Producto encontrado en el stock y cantidad disponible. Puede continuar con la solicitud."
+        SiNo
+            intentos <- intentos + 1
+            Si intentos < 3 Entonces
+                Escribir "Producto no encontrado en el stock o cantidad insuficiente. Intento ", intentos, " de 3."
+                Escribir "Por favor, intente nuevamente."
+            FinSi
+        FinSi
+    FinMientras
+    // Mensaje si se alcanzan 3 intentos sin éxito
+    Si esValido = "No" Entonces
+        Escribir "Ha alcanzado el límite de intentos. La solicitud no puede ser procesada."
+    FinSi
+FinFuncion
