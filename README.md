@@ -37,6 +37,8 @@ El tercer menú, el usuario accede al sistema con un Usuario y contraseña, el c
 
 ![GitHub Activity](https://github-readme-stats.vercel.app/api?username=nicyar&show_icons=true)
 
+![GitHub Activity](https://github-readme-stats.vercel.app/api?username=lunaariel&show_icons=true)
+
 ![GitHub Activity](https://github-readme-stats.vercel.app/api?username=maurom3t&show_icons=true)
 
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
