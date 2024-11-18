@@ -32,7 +32,7 @@ El tercer menú, el usuario accede al sistema con un Usuario y contraseña, el c
 
 - [@nicyar](https://www.github.com/nicyar)
 - [@mmartin](https://www.github.com/martin)
-- [@aluna](https://www.github.com/aluna)
+- [@lunaariel](https://www.github.com/lunaariel)
 - [@maurom3t](https://www.github.com/maurom3t)
 
 ![GitHub Activity](https://github-readme-stats.vercel.app/api?username=nicyar&show_icons=true)
