@@ -28,6 +28,10 @@ El segundo menú, el usuario accede al sistema con un Usuario y contraseña, el 
 
 El tercer menú, el usuario accede al sistema con un Usuario y contraseña, el cual le permite ver **Pedidos, STOCK (Material, Color y Cantidad)**
 
+#### ** Video Demo **
+
+(https://www.youtube.com/watch?v=fd4cFv22nQw&ab_channel=BetoV%C3%A1zquezInfinity-Topic)
+
 ## Authors
 
 - [@nicyar](https://www.github.com/nicyar)
